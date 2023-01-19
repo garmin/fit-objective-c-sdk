@@ -2,7 +2,7 @@
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 /////////////////////////////////////////////////////////////////////////////////////////////
-// Copyright 2022 Garmin International, Inc.
+// Copyright 2023 Garmin International, Inc.
 // Licensed under the Flexible and Interoperable Data Transfer (FIT) Protocol License; you
 // may not use this file except in compliance with the Flexible and Interoperable Data
 // Transfer (FIT) Protocol License.
