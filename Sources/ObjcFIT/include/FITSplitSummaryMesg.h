@@ -12,13 +12,12 @@
 
 #import <Foundation/Foundation.h>
 
-#import "FITDate.h"
 #import "FITMessage.h"
 #import "FITTypes.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FITSplitMesg : FITMessage
+@interface FITSplitSummaryMesg : FITMessage
 - (id)init;
 // MessageIndex 
 - (BOOL)isMessageIndexValid;
@@ -28,10 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)isSplitTypeValid;
 - (FITSplitType)getSplitType;
 - (void)setSplitType:(FITSplitType)splitType;
-// TotalElapsedTime 
-- (BOOL)isTotalElapsedTimeValid;
-- (FITFloat32)getTotalElapsedTime;
-- (void)setTotalElapsedTime:(FITFloat32)totalElapsedTime;
+// NumSplits 
+- (BOOL)isNumSplitsValid;
+- (FITUInt16)getNumSplits;
+- (void)setNumSplits:(FITUInt16)numSplits;
 // TotalTimerTime 
 - (BOOL)isTotalTimerTimeValid;
 - (FITFloat32)getTotalTimerTime;
@@ -44,10 +43,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)isAvgSpeedValid;
 - (FITFloat32)getAvgSpeed;
 - (void)setAvgSpeed:(FITFloat32)avgSpeed;
-// StartTime 
-- (BOOL)isStartTimeValid;
-- (FITDate *)getStartTime;
-- (void)setStartTime:(FITDate *)startTime;
+// MaxSpeed 
+- (BOOL)isMaxSpeedValid;
+- (FITFloat32)getMaxSpeed;
+- (void)setMaxSpeed:(FITFloat32)maxSpeed;
 // TotalAscent 
 - (BOOL)isTotalAscentValid;
 - (FITUInt16)getTotalAscent;
@@ -56,42 +55,22 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)isTotalDescentValid;
 - (FITUInt16)getTotalDescent;
 - (void)setTotalDescent:(FITUInt16)totalDescent;
-// StartPositionLat 
-- (BOOL)isStartPositionLatValid;
-- (FITSInt32)getStartPositionLat;
-- (void)setStartPositionLat:(FITSInt32)startPositionLat;
-// StartPositionLong 
-- (BOOL)isStartPositionLongValid;
-- (FITSInt32)getStartPositionLong;
-- (void)setStartPositionLong:(FITSInt32)startPositionLong;
-// EndPositionLat 
-- (BOOL)isEndPositionLatValid;
-- (FITSInt32)getEndPositionLat;
-- (void)setEndPositionLat:(FITSInt32)endPositionLat;
-// EndPositionLong 
-- (BOOL)isEndPositionLongValid;
-- (FITSInt32)getEndPositionLong;
-- (void)setEndPositionLong:(FITSInt32)endPositionLong;
-// MaxSpeed 
-- (BOOL)isMaxSpeedValid;
-- (FITFloat32)getMaxSpeed;
-- (void)setMaxSpeed:(FITFloat32)maxSpeed;
+// AvgHeartRate 
+- (BOOL)isAvgHeartRateValid;
+- (FITUInt8)getAvgHeartRate;
+- (void)setAvgHeartRate:(FITUInt8)avgHeartRate;
+// MaxHeartRate 
+- (BOOL)isMaxHeartRateValid;
+- (FITUInt8)getMaxHeartRate;
+- (void)setMaxHeartRate:(FITUInt8)maxHeartRate;
 // AvgVertSpeed 
 - (BOOL)isAvgVertSpeedValid;
 - (FITFloat32)getAvgVertSpeed;
 - (void)setAvgVertSpeed:(FITFloat32)avgVertSpeed;
-// EndTime 
-- (BOOL)isEndTimeValid;
-- (FITDate *)getEndTime;
-- (void)setEndTime:(FITDate *)endTime;
 // TotalCalories 
 - (BOOL)isTotalCaloriesValid;
 - (FITUInt32)getTotalCalories;
 - (void)setTotalCalories:(FITUInt32)totalCalories;
-// StartElevation 
-- (BOOL)isStartElevationValid;
-- (FITFloat32)getStartElevation;
-- (void)setStartElevation:(FITFloat32)startElevation;
 // TotalMovingTime 
 - (BOOL)isTotalMovingTimeValid;
 - (FITFloat32)getTotalMovingTime;
