@@ -122,11 +122,19 @@ final class FITTests: XCTestCase {
         doughnutsFieldDescMesg.setUnits("Doughnuts", for: 0)
         doughnutsFieldDescMesg.setNativeMesgNum(FITMesgNumSession)
 
+        let effortStringFieldDescMesg = FITFieldDescriptionMesg()
+        effortStringFieldDescMesg.setDeveloperDataIndex(0)
+        effortStringFieldDescMesg.setFieldDefinitionNumber(1)
+        effortStringFieldDescMesg.setFitBaseTypeId(FITFitBaseTypeString)
+        effortStringFieldDescMesg.setFieldName("Effort", for: 0)
+        effortStringFieldDescMesg.setNativeMesgNum(FITMesgNumSession)
+
         let ubyteIn:UInt8 = 0xF
         let ushortIn:UInt16 = 0xF0F
         let uintIn:UInt32 = 0xFFFFF
         let float32In:Float32 = 1234.56789;
         let float64In:Double = 1234.56789;
+        let stringIn:String = "Moderate";
 
         let doughnutsEarnedDevField = FITDeveloperField(fieldDescriptionMesg: doughnutsFieldDescMesg,andDeveloperDataIdMesg: developerIdMesg)
         doughnutsEarnedDevField.addValue(ubyteIn as NSNumber, for: 0)
@@ -135,17 +143,22 @@ final class FITTests: XCTestCase {
         doughnutsEarnedDevField.addValue(float32In as NSNumber, for: 3)
         doughnutsEarnedDevField.addValue(float64In as NSNumber, for: 4)
 
+        let effortStringDevField = FITDeveloperField(fieldDescriptionMesg: effortStringFieldDescMesg,andDeveloperDataIdMesg: developerIdMesg)
+        effortStringDevField.addStringValue(stringIn, for: 0);
+
         let ubyteOut = doughnutsEarnedDevField.getValueFor(0)
         let ushortOut = doughnutsEarnedDevField.getValueFor(1)
         let uintOut = doughnutsEarnedDevField.getValueFor(2)
         let float32Out = doughnutsEarnedDevField.getValueFor(3)
         let float64Out = doughnutsEarnedDevField.getValueFor(4)
+        let stringOut = effortStringDevField.getStringValue(for: 0)
 
         XCTAssertEqual(ubyteIn, ubyteOut.uint8Value)
         XCTAssertEqual(ushortIn, ushortOut.uint16Value)
         XCTAssertEqual(uintIn, uintOut.uint32Value)
         XCTAssertEqual(float32In, float32Out.floatValue)
         XCTAssertEqual(float64In, float64Out.doubleValue, accuracy: 0.0001)
+        XCTAssertEqual(stringIn, stringOut)
     }
 
     static var allTests = [
