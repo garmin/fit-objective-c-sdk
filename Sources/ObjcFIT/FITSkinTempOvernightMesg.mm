@@ -12,14 +12,13 @@
 
 #import "FITMessage+Internal.h"
 
-#import "FITString.h"
 
-#import "FITCameraEventMesg.h"
+#import "FITSkinTempOvernightMesg.h"
 
-@implementation FITCameraEventMesg
+@implementation FITSkinTempOvernightMesg
 
 - (instancetype)init {
-    self = [super initWithFitMesgIndex:fit::Profile::MESG_CAMERA_EVENT];
+    self = [super initWithFitMesgIndex:fit::Profile::MESG_SKIN_TEMP_OVERNIGHT];
 
     return self;
 }
@@ -42,8 +41,8 @@
     [super setFieldUINT32ValueForField:253 andValue:TimestampFromFITDate(timestamp) forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD];
 } 
 
-// TimestampMs 
-- (BOOL)isTimestampMsValid {
+// LocalTimestamp 
+- (BOOL)isLocalTimestampValid {
 	const fit::Field* field = [super getField:0];
 	if( FIT_NULL == field ) {
 		return FALSE;
@@ -52,16 +51,16 @@
 	return field->IsValueValid() == FIT_TRUE ? TRUE : FALSE;
 }
 
-- (FITUInt16)getTimestampMs {
-    return ([super getFieldUINT16ValueForField:0 forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD]);
+- (FITLocalDateTime)getLocalTimestamp {
+    return ([super getFieldUINT32ValueForField:0 forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD]);
 }
 
-- (void)setTimestampMs:(FITUInt16)timestampMs {
-    [super setFieldUINT16ValueForField:0 andValue:(timestampMs) forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD];
+- (void)setLocalTimestamp:(FITLocalDateTime)localTimestamp {
+    [super setFieldUINT32ValueForField:0 andValue:(localTimestamp) forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD];
 } 
 
-// CameraEventType 
-- (BOOL)isCameraEventTypeValid {
+// AverageDeviation 
+- (BOOL)isAverageDeviationValid {
 	const fit::Field* field = [super getField:1];
 	if( FIT_NULL == field ) {
 		return FALSE;
@@ -70,16 +69,16 @@
 	return field->IsValueValid() == FIT_TRUE ? TRUE : FALSE;
 }
 
-- (FITCameraEventType)getCameraEventType {
-    return ([super getFieldENUMValueForField:1 forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD]);
+- (FITFloat32)getAverageDeviation {
+    return ([super getFieldFLOAT32ValueForField:1 forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD]);
 }
 
-- (void)setCameraEventType:(FITCameraEventType)cameraEventType {
-    [super setFieldENUMValueForField:1 andValue:(cameraEventType) forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD];
+- (void)setAverageDeviation:(FITFloat32)averageDeviation {
+    [super setFieldFLOAT32ValueForField:1 andValue:(averageDeviation) forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD];
 } 
 
-// CameraFileUuid 
-- (BOOL)isCameraFileUuidValid {
+// Average7DayDeviation 
+- (BOOL)isAverage7DayDeviationValid {
 	const fit::Field* field = [super getField:2];
 	if( FIT_NULL == field ) {
 		return FALSE;
@@ -88,17 +87,17 @@
 	return field->IsValueValid() == FIT_TRUE ? TRUE : FALSE;
 }
 
-- (NSString *)getCameraFileUuid {
-    return ([super getFieldSTRINGValueForField:2 forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD]);
+- (FITFloat32)getAverage7DayDeviation {
+    return ([super getFieldFLOAT32ValueForField:2 forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD]);
 }
 
-- (void)setCameraFileUuid:(NSString *)cameraFileUuid {
-    [super setFieldSTRINGValueForField:2 andValue:(cameraFileUuid) forIndex:0];
+- (void)setAverage7DayDeviation:(FITFloat32)average7DayDeviation {
+    [super setFieldFLOAT32ValueForField:2 andValue:(average7DayDeviation) forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD];
 } 
 
-// CameraOrientation 
-- (BOOL)isCameraOrientationValid {
-	const fit::Field* field = [super getField:3];
+// NightlyValue 
+- (BOOL)isNightlyValueValid {
+	const fit::Field* field = [super getField:4];
 	if( FIT_NULL == field ) {
 		return FALSE;
 	}
@@ -106,12 +105,12 @@
 	return field->IsValueValid() == FIT_TRUE ? TRUE : FALSE;
 }
 
-- (FITCameraOrientationType)getCameraOrientation {
-    return ([super getFieldENUMValueForField:3 forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD]);
+- (FITFloat32)getNightlyValue {
+    return ([super getFieldFLOAT32ValueForField:4 forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD]);
 }
 
-- (void)setCameraOrientation:(FITCameraOrientationType)cameraOrientation {
-    [super setFieldENUMValueForField:3 andValue:(cameraOrientation) forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD];
+- (void)setNightlyValue:(FITFloat32)nightlyValue {
+    [super setFieldFLOAT32ValueForField:4 andValue:(nightlyValue) forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD];
 } 
 
 @end
