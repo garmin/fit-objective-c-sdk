@@ -18,16 +18,28 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FITSleepLevelMesg : FITMessage
+@interface FITSkinTempOvernightMesg : FITMessage
 - (id)init;
 // Timestamp 
 - (BOOL)isTimestampValid;
 - (FITDate *)getTimestamp;
 - (void)setTimestamp:(FITDate *)timestamp;
-// SleepLevel 
-- (BOOL)isSleepLevelValid;
-- (FITSleepLevel)getSleepLevel;
-- (void)setSleepLevel:(FITSleepLevel)sleepLevel;
+// LocalTimestamp 
+- (BOOL)isLocalTimestampValid;
+- (FITLocalDateTime)getLocalTimestamp;
+- (void)setLocalTimestamp:(FITLocalDateTime)localTimestamp;
+// AverageDeviation 
+- (BOOL)isAverageDeviationValid;
+- (FITFloat32)getAverageDeviation;
+- (void)setAverageDeviation:(FITFloat32)averageDeviation;
+// Average7DayDeviation 
+- (BOOL)isAverage7DayDeviationValid;
+- (FITFloat32)getAverage7DayDeviation;
+- (void)setAverage7DayDeviation:(FITFloat32)average7DayDeviation;
+// NightlyValue 
+- (BOOL)isNightlyValueValid;
+- (FITFloat32)getNightlyValue;
+- (void)setNightlyValue:(FITFloat32)nightlyValue;
 
 @end
 
