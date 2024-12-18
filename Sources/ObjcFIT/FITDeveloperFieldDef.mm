@@ -17,8 +17,8 @@
 @interface FITDeveloperField ()
 
 @property(nonatomic, assign) fit::DeveloperField *fit_developer_field;
-@property(nonatomic, assign) FITFieldDescriptionMesg* definition;
-@property(nonatomic, assign) FITDeveloperDataIdMesg* developer;
+@property(nonatomic, strong) FITFieldDescriptionMesg* definition;
+@property(nonatomic, strong) FITDeveloperDataIdMesg* developer;
 
 @end
 
