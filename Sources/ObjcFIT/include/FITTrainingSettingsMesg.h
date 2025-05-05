@@ -17,20 +17,24 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FITVideoMesg : FITMessage
+@interface FITTrainingSettingsMesg : FITMessage
 - (id)init;
-// Url 
-- (BOOL)isUrlValid;
-- (NSString *)getUrl;
-- (void)setUrl:(NSString *)url;
-// HostingProvider 
-- (BOOL)isHostingProviderValid;
-- (NSString *)getHostingProvider;
-- (void)setHostingProvider:(NSString *)hostingProvider;
-// Duration 
-- (BOOL)isDurationValid;
-- (FITUInt32)getDuration;
-- (void)setDuration:(FITUInt32)duration;
+// TargetDistance 
+- (BOOL)isTargetDistanceValid;
+- (FITFloat32)getTargetDistance;
+- (void)setTargetDistance:(FITFloat32)targetDistance;
+// TargetSpeed 
+- (BOOL)isTargetSpeedValid;
+- (FITFloat32)getTargetSpeed;
+- (void)setTargetSpeed:(FITFloat32)targetSpeed;
+// TargetTime 
+- (BOOL)isTargetTimeValid;
+- (FITUInt32)getTargetTime;
+- (void)setTargetTime:(FITUInt32)targetTime;
+// PreciseTargetSpeed 
+- (BOOL)isPreciseTargetSpeedValid;
+- (FITFloat32)getPreciseTargetSpeed;
+- (void)setPreciseTargetSpeed:(FITFloat32)preciseTargetSpeed;
 
 @end
 
