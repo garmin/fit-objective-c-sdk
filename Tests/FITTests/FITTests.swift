@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////////////////////////
-// Copyright 2024 Garmin International, Inc.
+// Copyright 2025 Garmin International, Inc.
 // Licensed under the Flexible and Interoperable Data Transfer (FIT) Protocol License; you
 // may not use this file except in compliance with the Flexible and Interoperable Data
 // Transfer (FIT) Protocol License.
@@ -161,6 +161,37 @@ final class FITTests: XCTestCase {
         XCTAssertEqual(stringIn, stringOut)
     }
 
+    func testCopyingDeveloperField() {
+        let developerIdMesg = FITDeveloperDataIdMesg()
+        developerIdMesg.setDeveloperDataIndex(0)
+
+        let fieldDescriptionMesg = FITFieldDescriptionMesg()
+        fieldDescriptionMesg.setDeveloperDataIndex(0)
+        fieldDescriptionMesg.setFieldDefinitionNumber(0)
+        fieldDescriptionMesg.setFitBaseTypeId(FITFitBaseTypeFloat32)
+        fieldDescriptionMesg.setFieldName("Dev Field", for: 0)
+
+        let devField = FITDeveloperField(fieldDescriptionMesg: fieldDescriptionMesg, andDeveloperDataIdMesg: developerIdMesg)
+        devField.addValue(0xFFFF as NSNumber, for: 0)
+
+        let originalRecord = FITRecordMesg()
+        originalRecord.add(devField)
+
+        let copiedRecord = FITRecordMesg(message: originalRecord)
+
+        let originalDevField = originalRecord.getDeveloperFields().first as! FITDeveloperField
+        let copiedDevField = copiedRecord.getDeveloperFields().first as! FITDeveloperField
+
+        XCTAssertNotNil(originalDevField.definition)
+        XCTAssertNotNil(copiedDevField.definition)
+
+        XCTAssertNotNil(originalDevField.description)
+        XCTAssertNotNil(copiedDevField.description)
+
+        XCTAssertNotNil(originalDevField.developer)
+        XCTAssertNotNil(copiedDevField.developer)
+    }
+
     static var allTests = [
         ("testEnumField",testEnumField),
         ("testStringField",testStringField),
@@ -168,6 +199,7 @@ final class FITTests: XCTestCase {
         ("testScale",testScale),
         ("testWorkoutStepMesgSubFields",testWorkoutStepMesgSubFields),
         ("testArrayField",testArrayField),
-        ("testDeveloperField",testDeveloperField)
+        ("testDeveloperField",testDeveloperField),
+        ("testCopyingDeveloperField",testCopyingDeveloperField)
     ]
 }
