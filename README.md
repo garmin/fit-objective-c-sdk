@@ -1,4 +1,4 @@
-# Swift and Objective-C
+# Objective-C
 
 The FIT Objective-C SDK is implemented as a Swift package that can be used in projects that target OSX or iOS using Xcode, Swift, and Objective-C. The package includes tests that demonstrate how to use the SDK. These test programs are similar to the [Cookbook](https://developer.garmin.com/fit/cookbook/) recipes.
 
@@ -22,3 +22,4 @@ When using the FITListener and FITMessages classes, the SwiftFIT module also nee
 ````
 import SwiftFIT // Swift
 ````
+
