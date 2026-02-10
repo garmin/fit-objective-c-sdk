@@ -1,5 +1,7 @@
 # Garmin - FIT Objective-C SDK
 
+A native FIT Swift SDK is available here: https://github.com/garmin/fit-swift-sdk 
+
 ## FIT SDK Documentation
 The FIT SDK documentation is available at [https://developer.garmin.com/fit](https://developer.garmin.com/fit).
 
@@ -7,7 +9,7 @@ The FIT SDK documentation is available at [https://developer.garmin.com/fit](htt
 Share your knowledge, ask questions, and get the latest FIT SDK news in the [FIT SDK Developer Forum](https://forums.garmin.com/developer/).
 
 ## Install
-In an Xcode project, select File > Add Package Dependency and enter the source control repository URL: https://github.com/garmin/fit-objective-c-sdk
+In an Xcode project, select File > Add Package Dependency and enter the source control repository URL: https://github.com/garmin/fit-objective-c-sdk 
 
 ## Usage
 After the FIT Objective-C SDK package has been added as dependency, it can be used by importing the ObjcFIT module into the appropriate source files.
