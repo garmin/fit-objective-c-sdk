@@ -18,7 +18,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FITTotalsMesg : FITMessage
+@interface FITNapEventMesg : FITMessage
 - (id)init;
 // MessageIndex 
 - (BOOL)isMessageIndexValid;
@@ -28,38 +28,38 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)isTimestampValid;
 - (FITDate *)getTimestamp;
 - (void)setTimestamp:(FITDate *)timestamp;
-// TimerTime 
-- (BOOL)isTimerTimeValid;
-- (FITUInt32)getTimerTime;
-- (void)setTimerTime:(FITUInt32)timerTime;
-// Distance 
-- (BOOL)isDistanceValid;
-- (FITUInt32)getDistance;
-- (void)setDistance:(FITUInt32)distance;
-// Calories 
-- (BOOL)isCaloriesValid;
-- (FITUInt32)getCalories;
-- (void)setCalories:(FITUInt32)calories;
-// Sport 
-- (BOOL)isSportValid;
-- (FITSport)getSport;
-- (void)setSport:(FITSport)sport;
-// ElapsedTime 
-- (BOOL)isElapsedTimeValid;
-- (FITUInt32)getElapsedTime;
-- (void)setElapsedTime:(FITUInt32)elapsedTime;
-// Sessions 
-- (BOOL)isSessionsValid;
-- (FITUInt16)getSessions;
-- (void)setSessions:(FITUInt16)sessions;
-// ActiveTime 
-- (BOOL)isActiveTimeValid;
-- (FITUInt32)getActiveTime;
-- (void)setActiveTime:(FITUInt32)activeTime;
-// SportIndex 
-- (BOOL)isSportIndexValid;
-- (FITUInt8)getSportIndex;
-- (void)setSportIndex:(FITUInt8)sportIndex;
+// StartTime 
+- (BOOL)isStartTimeValid;
+- (FITDate *)getStartTime;
+- (void)setStartTime:(FITDate *)startTime;
+// StartTimezoneOffset 
+- (BOOL)isStartTimezoneOffsetValid;
+- (FITSInt16)getStartTimezoneOffset;
+- (void)setStartTimezoneOffset:(FITSInt16)startTimezoneOffset;
+// EndTime 
+- (BOOL)isEndTimeValid;
+- (FITDate *)getEndTime;
+- (void)setEndTime:(FITDate *)endTime;
+// EndTimezoneOffset 
+- (BOOL)isEndTimezoneOffsetValid;
+- (FITSInt16)getEndTimezoneOffset;
+- (void)setEndTimezoneOffset:(FITSInt16)endTimezoneOffset;
+// Feedback 
+- (BOOL)isFeedbackValid;
+- (FITNapPeriodFeedback)getFeedback;
+- (void)setFeedback:(FITNapPeriodFeedback)feedback;
+// IsDeleted 
+- (BOOL)isIsDeletedValid;
+- (FITBool)getIsDeleted;
+- (void)setIsDeleted:(FITBool)isDeleted;
+// Source 
+- (BOOL)isSourceValid;
+- (FITNapSource)getSource;
+- (void)setSource:(FITNapSource)source;
+// UpdateTimestamp 
+- (BOOL)isUpdateTimestampValid;
+- (FITDate *)getUpdateTimestamp;
+- (void)setUpdateTimestamp:(FITDate *)updateTimestamp;
 
 @end
 

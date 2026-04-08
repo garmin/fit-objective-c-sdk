@@ -30,4 +30,4 @@ The package includes tests that demonstrate how to use the SDK. These test progr
 * FITDateTests.swift: Demonstrates how to work with the FITDate class.
 * FITTests.swift: Demonstrates using arrays, enums, strings, and subfields.
 
-To run the tests, open /path/to/fit/sdk/objcpp/package.swift in Xcode. Then goto to the Test navigator and press ⌘U to run all of the tests.
+To run the tests, open /path/to/fit/sdk/objcpp/package.swift in Xcode. Then go to the Test navigator and press ⌘U to run all of the tests.
