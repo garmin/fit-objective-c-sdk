@@ -20,6 +20,8 @@
                                        // Character encoding also defined by size.   1: UTF-8   2: UTF-16   4: UTF-32
 //#define FIT_CPP_INCLUDE_C // Define to include C definitions in C++ header file.  Allows C and C++ code to be compiled together.
 
+//#define FIT_ENABLE_LEGACY_FLOAT_CASTS // Enable to allow compiler-specific implicit float to unsigned integer casts. This is the default behavior of the FIT SDK prior to version 21.209.0
+
 #if defined(__cplusplus)
    }
 #endif
