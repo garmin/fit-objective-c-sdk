@@ -13,12 +13,12 @@
 #import "FITMessage+Internal.h"
 
 
-#import "FITMonitoringHrDataMesg.h"
+#import "FITBatteryMesg.h"
 
-@implementation FITMonitoringHrDataMesg
+@implementation FITBatteryMesg
 
 - (instancetype)init {
-    self = [super initWithFitMesgIndex:fit::Profile::MESG_MONITORING_HR_DATA];
+    self = [super initWithFitMesgIndex:fit::Profile::MESG_BATTERY];
 
     return self;
 }
@@ -41,9 +41,9 @@
     [super setFieldUINT32ValueForField:253 andValue:TimestampFromFITDate(timestamp) forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD];
 } 
 
-// RestingHeartRate 
-- (BOOL)isRestingHeartRateValid {
-	const fit::Field* field = [super getField:0];
+// Capacity 
+- (BOOL)isCapacityValid {
+	const fit::Field* field = [super getField:2];
 	if( FIT_NULL == field ) {
 		return FALSE;
 	}
@@ -51,30 +51,12 @@
 	return field->IsValueValid() == FIT_TRUE ? TRUE : FALSE;
 }
 
-- (FITUInt8)getRestingHeartRate {
-    return ([super getFieldUINT8ValueForField:0 forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD]);
+- (FITUInt8)getCapacity {
+    return ([super getFieldUINT8ValueForField:2 forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD]);
 }
 
-- (void)setRestingHeartRate:(FITUInt8)restingHeartRate {
-    [super setFieldUINT8ValueForField:0 andValue:(restingHeartRate) forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD];
-} 
-
-// CurrentDayRestingHeartRate 
-- (BOOL)isCurrentDayRestingHeartRateValid {
-	const fit::Field* field = [super getField:1];
-	if( FIT_NULL == field ) {
-		return FALSE;
-	}
-
-	return field->IsValueValid() == FIT_TRUE ? TRUE : FALSE;
-}
-
-- (FITUInt8)getCurrentDayRestingHeartRate {
-    return ([super getFieldUINT8ValueForField:1 forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD]);
-}
-
-- (void)setCurrentDayRestingHeartRate:(FITUInt8)currentDayRestingHeartRate {
-    [super setFieldUINT8ValueForField:1 andValue:(currentDayRestingHeartRate) forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD];
+- (void)setCapacity:(FITUInt8)capacity {
+    [super setFieldUINT8ValueForField:2 andValue:(capacity) forIndex:0 andSubFieldIndex:FIT_SUBFIELD_INDEX_MAIN_FIELD];
 } 
 
 @end

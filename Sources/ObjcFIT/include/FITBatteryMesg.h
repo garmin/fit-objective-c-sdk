@@ -18,21 +18,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FITHsaConfigurationDataMesg : FITMessage
+@interface FITBatteryMesg : FITMessage
 - (id)init;
 // Timestamp 
 - (BOOL)isTimestampValid;
 - (FITDate *)getTimestamp;
 - (void)setTimestamp:(FITDate *)timestamp;
-// Data 
-@property(readonly,nonatomic) uint8_t numDataValues;
-- (BOOL)isDataValidforIndex : (uint8_t)index;
-- (FITByte)getDataforIndex : (uint8_t)index;
-- (void)setData:(FITByte)data forIndex:(uint8_t)index;
-// DataSize 
-- (BOOL)isDataSizeValid;
-- (FITUInt8)getDataSize;
-- (void)setDataSize:(FITUInt8)dataSize;
+// Capacity 
+- (BOOL)isCapacityValid;
+- (FITUInt8)getCapacity;
+- (void)setCapacity:(FITUInt8)capacity;
 
 @end
 
